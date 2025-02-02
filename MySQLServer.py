@@ -15,9 +15,9 @@ def create_database():
             cursor.execute("CREATE DATABASE IF NOT EXISTS alx_book_store")
             print("Database 'alx_book_store' created successfully!")
     
-    except for MySQL. connector.Error as e:
-        # Raising the exception after catching it
-        raise Exception(f"An error occurred while interacting with MySQL: {e}")
+    except mysql.connector.Error as e:
+        # Handling MySQL-specific errors
+        print(f"An error occurred while interacting with MySQL: {e}")
     
     finally:
         if connection.is_connected():
@@ -25,7 +25,4 @@ def create_database():
             connection.close()
 
 if __name__ == "__main__":
-    try:
-        create_database()
-    except Exception as e:
-        print(f"Error: {e}")
+    create_database()
